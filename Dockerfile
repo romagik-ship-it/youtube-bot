@@ -13,4 +13,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD ["node", "indexjs"]
+CMD ["node", "index.js"]

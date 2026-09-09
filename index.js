@@ -154,8 +154,8 @@ async function executeDownload(ctx, url, action, userId) {
 
   if (action === 'download_video') {
     finalExtension = 'mp4';
-    command = `yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" --merge-output-format mp4 -o "${path.join(downloadDir, outputFilename)}.%(ext)s" "${url}"`;
-  } else if (action === 'download_audio') {
+    command = `yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" --merge-output-format mp4 -o "${path.join(downloadDir, outputFilename)}.% (ext)s" "${url}"`;
+
     finalExtension = 'mp3';
     command = `yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata -o "${path.join(downloadDir, outputFilename)}.%(ext)s" "${url}"`;
   }

@@ -107,6 +107,8 @@ async function splitVideo(inputPath, outputDir, baseName) {
   return chunkPaths;
 }
 
+
+
 // Менеджер очереди задач
 function enqueueDownload(ctx, url, action, userId) {
   downloadQueue.push({ ctx, url, action, userId, notified: false });
@@ -152,7 +154,7 @@ async function executeDownload(ctx, url, action, userId) {
 
   if (action === 'download_video') {
     finalExtension = 'mp4';
-    command = `yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" --merge-output-format mp4 -o "${path.join(downloadDir, outputFilename)}.% (ext)s" "${url}"`;
+    command = `yt-dlp -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" --merge-output-format mp4 -o "${path.join(downloadDir, outputFilename)}.%(ext)s" "${url}"`;
   } else if (action === 'download_audio') {
     finalExtension = 'mp3';
     command = `yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata -o "${path.join(downloadDir, outputFilename)}.%(ext)s" "${url}"`;
@@ -351,5 +353,4 @@ bot.launch()
 
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
-
 

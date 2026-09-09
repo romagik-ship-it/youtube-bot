@@ -1,0 +1,13 @@
+{
+  "name": "youtube-downloader-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for downloading YouTube videos and audio using yt-dlp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
